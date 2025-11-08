@@ -8,7 +8,7 @@ public class Rectangle implements Drawable {
     public Point topright;
     public Point bottomleft;
 
-    public Rectangle(Point x, Point y) { 
+    public Rectangle(Point x, Point y) {
         this.topleft = x;
         this.bottomright = y;
         fixpoints(this.topleft, this.bottomright);
@@ -21,10 +21,10 @@ public class Rectangle implements Drawable {
 
     @Override
     public void draw(Displayable displayable) {
-        displayable.displayLine(topleft, topright);
-        displayable.displayLine(topright, bottomright);
-        displayable.displayLine(bottomright, bottomleft);
-        displayable.displayLine(bottomleft, topleft);
+        new Line(topleft, topright).draw(displayable);
+        new Line(topright, bottomright).draw(displayable);
+        new Line(bottomright, bottomleft).draw(displayable);
+        new Line(bottomleft, topleft).draw(displayable);
     }
 
     @Override
