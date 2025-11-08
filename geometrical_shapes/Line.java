@@ -5,7 +5,7 @@ import java.awt.Color;
 public class Line implements Drawable {
     Point a, b;
 
-    Line(Point a, Point b) {
+    public Line(Point a, Point b) {
         this.a = a;
         this.b = b;
     }
@@ -14,16 +14,17 @@ public class Line implements Drawable {
         displayable.display(a.x, a.y);
         displayable.display(b.x, b.y);
 
-        int distX = b.x - a.x;
-        int distY = b.y - a.y;
-        int maxSteps = Math.max(Math.abs(distX), Math.abs(distY));
+        float distX = b.x - a.x;
+        float distY = b.y - a.y;
 
-        int stepX = distX / maxSteps;
-        int stepY = distY / maxSteps;
+        float maxSteps = Math.max(Math.abs(distX), Math.abs(distY));
+
+        float stepX = distX / maxSteps;
+        float stepY = distY / maxSteps;
 
         for (int i = 0; i < maxSteps; i++) {
-            int nextX = a.x + stepX * i;
-            int nextY = a.y + stepY * i;
+            int nextX = Math.round(a.x + stepX * i);
+            int nextY = Math.round(a.y + stepY * i);
             displayable.display(nextX, nextY);
         }
     }
