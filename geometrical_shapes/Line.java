@@ -13,22 +13,17 @@ public class Line implements Drawable {
     public void draw(Displayable displayable) {
         displayable.display(a.x, a.y);
         displayable.display(b.x, b.y);
-        System.out.println("--points:");
-        System.out.println(a.x + " " + a.y);
-        System.out.println(b.x + " " + b.y);
 
-        int distX = a.x - b.x;
-        int distY = a.y - b.y;
+        int distX = b.x - a.x;
+        int distY = b.y - a.y;
         int maxSteps = Math.max(Math.abs(distX), Math.abs(distY));
 
-        int stepX = -distX / maxSteps;
-        int stepY = -distY / maxSteps;
+        int stepX = distX / maxSteps;
+        int stepY = distY / maxSteps;
 
         for (int i = 0; i < maxSteps; i++) {
             int nextX = a.x + stepX * i;
             int nextY = a.y + stepY * i;
-
-            System.out.println("nextY: " + nextX + " nextY: " + nextY);
             displayable.display(nextX, nextY);
         }
     }
