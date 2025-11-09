@@ -7,6 +7,7 @@ public class Rectangle implements Drawable {
     public Point bottomright;
     public Point topright;
     public Point bottomleft;
+    public Colored colored = new Colored(); 
 
     public Rectangle(Point x, Point y) {
         this.topleft = x;
@@ -21,14 +22,15 @@ public class Rectangle implements Drawable {
 
     @Override
     public void draw(Displayable displayable) {
-        new Line(topleft, topright).draw(displayable);
-        new Line(topright, bottomright).draw(displayable);
-        new Line(bottomright, bottomleft).draw(displayable);
-        new Line(bottomleft, topleft).draw(displayable);
+        Color c = colored.color;
+        new Line(topleft, topright, c).draw(displayable);
+        new Line(topright, bottomright, c).draw(displayable);
+        new Line(bottomright, bottomleft, c).draw(displayable);
+        new Line(bottomleft, topleft, c).draw(displayable);
     }
 
     @Override
     public Color getColor() {
-        return null; // ba9i mkhdmt biha
+        return colored.color;
     }
 }
