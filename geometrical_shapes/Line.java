@@ -16,7 +16,16 @@ public class Line extends Colored implements Drawable {
         this.color = color;
     }
 
+    public static Line random(int maxWidth, int maxHeight) {
+        double x1 = Math.random() * maxWidth;
+        double y1 = Math.random() * maxHeight;
+        double x2 = Math.random() * maxWidth;
+        double y2 = Math.random() * maxHeight;
 
+        Point randomPoint1 = new Point((int) x1, (int) y1);
+        Point randomPoint2 = new Point((int) x2, (int) y2);
+        return new Line(randomPoint1, randomPoint2);
+    }
 
     public void draw(Displayable displayable) {
         float distX = b.x - a.x;
