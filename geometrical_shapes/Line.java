@@ -17,9 +17,6 @@ public class Line extends Colored implements Drawable {
     }
 
     public void draw(Displayable displayable) {
-        displayable.display(a.x, a.y, getColor());
-        displayable.display(b.x, b.y, getColor());
-
         float distX = b.x - a.x;
         float distY = b.y - a.y;
 

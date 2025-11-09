@@ -2,15 +2,6 @@ import geometrical_shapes.Circle;
 import geometrical_shapes.Image;
 import geometrical_shapes.Point;
 import geometrical_shapes.Rectangle;
-// interface Displayable {
-//     void display(int x, int y, Color color);
-//     void save(String string);
-// }
-
-// interface Drawable {
-//     void draw(Displayable displayable);
-//     Color getColor();
-// }
 
 public class Main {
     public static void main(String[] args) {
