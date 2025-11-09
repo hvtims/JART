@@ -2,7 +2,7 @@ package geometrical_shapes;
 
 import java.awt.Color;
 
-public class Line implements Drawable {
+public class Line extends Colored implements Drawable {
     Point a, b;
 
     public Line(Point a, Point b) {
@@ -10,9 +10,15 @@ public class Line implements Drawable {
         this.b = b;
     }
 
+    public Line(Point a, Point b, Color color) {
+        this.a = a;
+        this.b = b;
+        this.color = color;
+    }
+
     public void draw(Displayable displayable) {
-        displayable.display(a.x, a.y);
-        displayable.display(b.x, b.y);
+        displayable.display(a.x, a.y, getColor());
+        displayable.display(b.x, b.y, getColor());
 
         float distX = b.x - a.x;
         float distY = b.y - a.y;
@@ -25,12 +31,12 @@ public class Line implements Drawable {
         for (int i = 0; i < maxSteps; i++) {
             int nextX = Math.round(a.x + stepX * i);
             int nextY = Math.round(a.y + stepY * i);
-            displayable.display(nextX, nextY);
+            displayable.display(nextX, nextY, getColor());
         }
     }
 
     public Color getColor() {
-        throw new UnsupportedOperationException("Unimplemented method 'getColor'");
+        return this.color;
     }
 
 }

@@ -35,9 +35,9 @@ public class Image implements Displayable {
     }
 
     @Override
-    public void display(int x, int y) {
+    public void display(int x, int y, Color color) {
         if (x >= 0 && x < width && y >= 0 && y < height)
-            bufferedImage.setRGB(x, y, Color.WHITE.getRGB());
+            bufferedImage.setRGB(x, y, color.getRGB());
     }
 
     @Override

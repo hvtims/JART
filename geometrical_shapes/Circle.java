@@ -2,7 +2,7 @@ package geometrical_shapes;
 
 import java.awt.Color;
 
-public class Circle implements Drawable {
+public class Circle extends Colored implements Drawable {
     Point center;
     int radius;
     static double radian = Math.PI / 180;
@@ -26,11 +26,11 @@ public class Circle implements Drawable {
             double angle = radian * i;
             double x = center.x + radius * Math.cos(angle);
             double y = center.y + radius * Math.sin(angle);
-            displayable.display((int) Math.round(x), (int) Math.round(y));
+            displayable.display((int) Math.round(x), (int) Math.round(y), getColor());
         }
     }
 
     public Color getColor() {
-        throw new UnsupportedOperationException("Unimplemented method 'getColor'");
+        return this.color;
     }
 }
